@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home:home' %}">Mi Sitio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'home:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home:perfil' %}">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'productos:index' %}">Productos</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contenido de la página de inicio -->
+<div class="container">
+    <h1>Bienvenido a la Página de Inicio</h1>
+    <p>Este es un espacio donde puedes navegar por el sitio y acceder a diferentes funcionalidades como tu perfil, productos, etc.</p>
+</div>
+{% endblock %}
